@@ -12,7 +12,7 @@ const makeTransaction = (transaction) => {
 
       setTimeout(() => {
         if (canProcess) {
-          onSuccess(transaction.id, delay);
+          onSuccess({id: transaction.id, time: delay});
         } 
 
         onError(transaction.id);
@@ -21,7 +21,7 @@ const makeTransaction = (transaction) => {
   });
 };
 
-const logSuccess = (id, time) => {
+const logSuccess = ({id, time}) => {
   console.log(`Transaction ${id} processed in ${time} ms`);
 };  
 
